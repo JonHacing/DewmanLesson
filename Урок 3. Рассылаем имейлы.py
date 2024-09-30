@@ -8,10 +8,10 @@ passward = os.getenv('PASSWARD')
 site = 'dvmn.org'
 freand_name = 'Дима'
 my_name = 'Егор'
+email_from = 'egorkazasheby@mail.ru'
+email_to = 'egorkazasheby@mail.ru'
 
-letter = """From: egorkazasheby@mail.ru
-To: egorkazasheby@mail.ru
-Subject: Приглашение!
+letter = "From:" + email_from +"\n"+ "To:" + email_to +"\n"+ """Subject: Приглашение!
 Content-Type: text/plain; charset="UTF-8;"""
 
 mail = """ {letter}
@@ -41,6 +41,6 @@ mail = mail.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.mail.ru:465')
 server.login(login, passward)
-server.sendmail('egorkazasheby@mail.ru', 'egorkazasheby@mail.ru', mail)
+server.sendmail(email_from, email_to, mail)
 server.quit()
 
